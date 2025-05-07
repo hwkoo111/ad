@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>영화 검색</title>
+</head>
+<body>
+<h2>영화 검색</h2>
+
+<form th:action="@{/movies/search}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="영화 제목 입력" />
+    <button type="submit">검색</button>
+</form>
+
+
+<div th:if="${movies != null}">
+    <h3>검색 결과</h3>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>제목</th>
+            <th>영문 제목</th>
+            <th>제작년도</th>
+            <th>장르</th>
+            <th>줄거리</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="movie : ${movies}">
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.titleEng}"></td>
+            <td th:text="${movie.createDts}"></td>
+            <td th:text="${movie.genre}"></td>
+            <td th:text="${movie.plot}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
+
+</body>
+</html>
