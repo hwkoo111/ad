@@ -2,6 +2,7 @@ package deu.movietalk.controller;
 
 import deu.movietalk.dto.MovieSearchSummaryDto;
 import deu.movietalk.dto.PlayListUpdateRequestDto;
+import deu.movietalk.dto.UpdateFavoriteMovie;
 import deu.movietalk.dto.UpdateNicknameRequest;
 import deu.movietalk.service.FavoriteMovieService;
 import deu.movietalk.service.PlaylistService;
@@ -102,11 +103,33 @@ public class FavoriteMovieController {
 
 
     //수정
-
+    @PutMapping("/update")
+    public ResponseEntity<String> updateFavoriteMovie(@RequestParam String memberId, @RequestBody UpdateFavoriteMovie dto) {
+        try {
+            // 즐겨찾기 영화 수정 서비스 호출
+            favoriteMovieService.updateMovie(memberId, dto);
+            return ResponseEntity.ok("영화가 수정되었습니다.");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(400).body(e.getMessage()); // 예외 처리
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("영화 수정 중 오류가 발생했습니다." + e.getMessage());
+        }
+    }
 
 
     //삭제
-
+    // memberId로 모든 즐겨찾기 영화 삭제 API
+    @DeleteMapping("/delete-all")
+    public ResponseEntity<String> deleteFavoriteMovies(@RequestParam String memberId) {
+        try {
+            // 즐겨찾기 영화 삭제 서비스 호출
+            favoriteMovieService.deleteFavoriteMovie(memberId);
+            return ResponseEntity.ok("영화가 삭제되었습니다.");
+        } catch (Exception e) {
+            e.printStackTrace();  // 로그에 예외 스택 트레이스를 출력 (개발 중에만 사용, 실제 운영 환경에서는 로깅 사용)
+            return ResponseEntity.status(500).body("영화 삭제 중 오류가 발생했습니다. " + e.getMessage());
+        }
+    }
 
 
 
