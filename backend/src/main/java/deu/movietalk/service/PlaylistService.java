@@ -33,6 +33,7 @@ public class PlaylistService {
         movieSelectionStore.addMovie(memberId, movieId);
     }
 
+
     // 플레이리스트 생성
     @Transactional
     public void createPlaylist(String name, String memberId) {
