@@ -5,15 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="006ff2a7-d303-45ab-9c74-30f5766323c0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/dto/MovieSearchResponseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/auth/AuthAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/auth/UserAPI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/Navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/pages/SignUpPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/movietalk.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/movietalk.main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/JWTFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/JWTFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MemberRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MovieRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/movie-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/movie-search.html" afterDir="false" />
@@ -34,12 +25,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="movietalk" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -49,6 +35,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
