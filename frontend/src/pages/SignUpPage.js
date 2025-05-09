@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { login } from "../api/AuthAPI";
+import { signUp } from "../api/AuthAPI";
 
-export default function SignInPage() {
+export default function SignUpPage() {
     const [values, setValues] = useState({
         username: "",
         password: "",
+        nickname: "",
     });
 
     const handleChange = async (e) => {
@@ -14,13 +15,9 @@ export default function SignInPage() {
     }
 
     const handleSubmit = async (e) => {
-        login(values)
+        signUp(values)
         .then((response) => {
-            localStorage.clear();
-            localStorage.setItem('tokenType', response.tokenType);
-            localStorage.setItem('accessToken', response.accessToken);
-            localStorage.setItem('refreshToken', response.refreshToken);
-            window.location.href = `/playlist`; //로그인하고 돌아갈 페이지
+            window.location.href = `/login`;
         }).catch((error) => {
             console.log(error);
         });
@@ -39,7 +36,11 @@ export default function SignInPage() {
                         <input type="password" className="form-control" id="password" onChange={handleChange} value={values.password} />
                     </div>
                     <div className="form-group" style={{ minWidth: "25vw" }}>
-                        <button type="submit" style={{ width: "100%"}}>로그인</button>
+                                            <label htmlFor="nickname">닉네임</label>
+                                            <input type="password" className="form-control" id="nickname" onChange={handleChange} value={values.nickname} />
+                                        </div>
+                    <div className="form-group" style={{ minWidth: "25vw" }}>
+                        <button type="submit" style={{ width: "100%"}}>회원가입</button>
                     </div>
                 </form>
             </div>

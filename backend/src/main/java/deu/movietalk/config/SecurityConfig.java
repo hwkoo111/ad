@@ -77,9 +77,9 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/movie","/signup").permitAll()
-                        .requestMatchers("/api/community/**").hasRole("USER")
-                        .requestMatchers("/api/community/**").hasRole("ADMIN")
+                        .requestMatchers("/login", "/movie/**","/signup").permitAll()
+                        .requestMatchers("/api/community/**").hasAnyRole("USER", "ADMIN")
+//                        .requestMatchers("/api/community/**").hasRole("ADMIN")
                         .anyRequest().authenticated());
 
         //JWTFilter 등록
