@@ -5,10 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="006ff2a7-d303-45ab-9c74-30f5766323c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MemberRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MemberRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/repository/MovieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/templates/movie-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/templates/movie-search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/LoginPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/LoginPage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/auth/LoginForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/styles/LoginForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/config/CorsMvcConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/config/CorsMvcConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/auth/AuthAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/auth/UserAPI.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/LoginPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/SignUpPage.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/reportWebVitals.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +54,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -63,10 +81,15 @@
     &quot;Gradle.backend [:MovietalkApplication.main()].executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend__mk&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gyung23\Desktop\MovieTalk\frontend\src\styles" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="MovietalkApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="deu.movietalk.MovietalkApplication" />
@@ -83,6 +106,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.MovietalkApplication" />
         <item itemvalue="Application.MovietalkApplication" />
       </list>
     </recent_temporary>
