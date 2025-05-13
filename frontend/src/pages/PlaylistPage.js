@@ -42,14 +42,16 @@ const PlaylistPage = () => {
       <h1>플레이리스트 목록</h1>
 
       {/* 플레이리스트 목록 출력 */}
-      <ul>
-        {currentItems.map((playlist, index) => (
-          <li key={index}>
-            <h3>{playlist.playListName}</h3>
-            <p>{playlist.playListDate}</p>
-            <p>작성자: {playlist.nickname}</p>
-          </li>
-        ))}
+      <ul className="playlist-list">
+      {currentItems.map((playlist, index) => (
+        <li key={index} className="playlist-item">
+          <div className="playlist-row">
+            <span className="playlist-name">{playlist.playListName}</span>
+            <span className="playlist-date">{playlist.playListDate}</span>
+            <span className="playlist-member">작성자: {playlist.memberNickname}</span>
+          </div>
+        </li>
+      ))}
       </ul>
 
       {/* 페이지네이션 컴포넌트 */}

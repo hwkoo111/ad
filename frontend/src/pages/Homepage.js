@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import '../styles/Homepage.css';  // CSS 파일 import
 
 const MovieList = () => {
   const [movies, setMovies] = useState({}); // 영화 데이터를 저장할 상태
   const [errorMessage, setErrorMessage] = useState(''); // 에러 메시지 상태
+  const location = useLocation();
+  
+  useEffect(() => {
+    // location.state를 통해 전달된 메시지 알림
+    if (location.state?.successMessage) {
+      alert(location.state.successMessage);
+    }
+  }, [location]);
 
   useEffect(() => {
     // 영화 데이터를 API에서 받아오기

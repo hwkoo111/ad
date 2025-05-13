@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/Pagination.css";
+import "../styles/Pagination.css"; 
 
 export default function Pagination({
   totalItems,
@@ -24,18 +24,18 @@ export default function Pagination({
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className="wrapper">
       <ul>
         {/* 이전 버튼 */}
-        <li className={`${styles.move} ${currentPage === 1 && styles.invisible}`}>
-          <Link to="#" onClick={() => onPageChange(currentPage - 1)}>이전</Link>
+        <li className={`move ${currentPage === 1 ? "invisible" : ""}`}>
+          <Link to="#" onClick={() => onPageChange(currentPage - 1)}>&lt;</Link>
         </li>
 
         {/* 페이지 번호들 */}
         {pageNumbers.map((number) => (
           <li key={number}>
             <Link
-              className={`${styles.page} ${currentPage === number && styles.active}`}
+              className={`page ${currentPage === number ? "active" : ""}`}
               to="#"
               onClick={() => onPageChange(number)}
             >
@@ -45,8 +45,8 @@ export default function Pagination({
         ))}
 
         {/* 다음 버튼 */}
-        <li className={`${styles.move} ${currentPage === totalPages && styles.invisible}`}>
-          <Link to="#" onClick={() => onPageChange(currentPage + 1)}>다음</Link>
+        <li className={`move ${currentPage === totalPages ? "invisible" : ""}`}>
+          <Link to="#" onClick={() => onPageChange(currentPage + 1)}>&gt;</Link>
         </li>
       </ul>
     </div>

@@ -36,11 +36,19 @@ const LoginForm = () => {
                 setSuccessMessage('로그인 성공!');
 //              setSuccessMessage(token)
                 setErrorMessage('');  // 이전의 오류 메시지 초기화
-                navigate('/');
+                navigate('/', {
+                    state: {
+                        successMessage: `로그인 성공!\n토큰 테스트: ${token}`
+                    }
+                });
 
                 } else {
                 // 응답 코드에 따른 상세 에러 메시지 처리
-                const data = await response.json();
+                let data = {};
+                const contentType = response.headers.get("content-type");
+                if (contentType && contentType.includes("application/json")) {
+                    data = await response.json();
+                }
                 console.log('Error Data:', data); // 응답 데이터를 콘솔에 출력
 
                 if (response.status === 401) {
