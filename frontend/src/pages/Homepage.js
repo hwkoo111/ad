@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import logo from '../assets/logo.png'
+import '../styles/Homepage.css';  // CSS 파일 import
 
 const MovieList = () => {
   const [movies, setMovies] = useState({}); // 영화 데이터를 저장할 상태
@@ -8,11 +10,12 @@ const MovieList = () => {
     // 영화 데이터를 API에서 받아오기
     const fetchMovies = async () => {
       try {
-        const response = await fetch('/movie'); //
+        const response = await fetch('/api/movie');
         if (!response.ok) {
           throw new Error('영화 데이터를 가져오는 데 실패했습니다.');
         }
         const data = await response.json(); // JSON 응답 파싱
+        console.log(data);
         setMovies(data); // 영화 데이터를 상태에 저장
       } catch (error) {
         setErrorMessage(error.message); // 에러 메시지 처리
@@ -28,36 +31,38 @@ const MovieList = () => {
   }
 
   return (
-    <div>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* 에러 메시지 표시 */}
-
-      {/* 상영작 카테고리 */}
       <div>
-        <h3>상영작</h3>
-        <div className="movie-category">
-          {movies['상영작'].map((movie, index) => (
-            <div key={index} className="movie-item">
-              <img src={movie.posterUrl || 'https://via.placeholder.com/150'} alt={movie.title} />
-              <p>{movie.title}</p>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* 에러 메시지 표시 */}
+
+        <div className="movie-container">
+          {/* 상영작 카테고리 */}
+          <div className="movie-category">
+            <h3>상영작</h3>
+            <div className="movie-items">
+              {movies['상영작'].map((movie, index) => (
+                <div key={index} className="movie-item">
+                  <img src={movie.posterUrl || logo} alt={movie.title} />
+                  <p>{movie.title}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* 호러 카테고리 */}
+          <div className="movie-category">
+            <h3>호러</h3>
+            <div className="movie-items">
+              {movies['호러'].map((movie, index) => (
+                <div key={index} className="movie-item">
+                  <img src={movie.posterUrl || logo} alt={movie.title} />
+                  <p>{movie.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
+    );
+  };
 
-      {/* 호러 카테고리 */}
-      <div>
-        <h3>호러</h3>
-        <div className="movie-category">
-          {movies['호러'].map((movie, index) => (
-            <div key={index} className="movie-item">
-              <img src={movie.posterUrl || 'https://via.placeholder.com/150'} alt={movie.title} />
-              <p>{movie.title}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default MovieList;
+  export default MovieList;

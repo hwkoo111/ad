@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/friend")
+@RequestMapping("/api/friend")
 public class FindFriendController {
 
     private final FindFriendService findFriendService;
 
     // 즐겨찾기 영화 조회 API
-    @GetMapping("/favorites")
+    @GetMapping
     public ResponseEntity<?> getFavoriteMovieDetail(@RequestParam String nickname) {
         try {
             // 즐겨찾기 영화 상세 조회 서비스 호출

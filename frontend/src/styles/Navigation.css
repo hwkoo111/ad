@@ -1,0 +1,31 @@
+/* Navigation.css */
+nav {
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  gap: 20px; /* 항목 간 간격 */
+  background-color: #333; /* 배경색 */
+  padding: 10px 0; /* 상하 패딩 */
+}
+
+nav div {
+  flex: 1; /* 각 항목을 균등하게 나누기 */
+  text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+nav a {
+  color: white; /* 링크 텍스트 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+  font-size: 18px; /* 글자 크기 */
+  padding: 8px 15px; /* 패딩 추가 */
+  transition: background-color 0.3s, color 0.3s; /* 전환 효과 */
+}
+
+nav a:hover {
+  background-color: #444; /* 마우스 오버 시 배경색 */
+  color: #ffcc00; /* 마우스 오버 시 텍스트 색상 */
+}
+
+nav a.active {
+  font-weight: bold; /* 활성화된 링크는 굵게 */
+  color: #ffcc00; /* 활성화된 링크 색상 */
+}

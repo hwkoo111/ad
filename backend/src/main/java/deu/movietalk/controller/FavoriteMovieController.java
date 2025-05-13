@@ -23,7 +23,7 @@ import java.util.Set;
 //마이페이지(닉네임 수정, 최애영화 3개 등록,수정,삭제)
 @RestController
 @AllArgsConstructor
-@RequestMapping("/mypage")
+@RequestMapping("/api/mypage")
 public class FavoriteMovieController {
 
     public final FavoriteMovieService favoriteMovieService;
@@ -32,7 +32,7 @@ public class FavoriteMovieController {
 
 
     //닉네임 수정
-    @PutMapping("/update-nickname")
+    @PutMapping("/enter/update-nickname")
     public ResponseEntity<String> updateNickname(
             @RequestParam String newNickname,  // @RequestParam을 사용하여 쿼리 파라미터로 받기
             @AuthenticationPrincipal UserDetails userDetails) {
@@ -103,7 +103,7 @@ public class FavoriteMovieController {
 
 
     //수정
-    @PutMapping("/update")
+    @PutMapping("/enter/update")
     public ResponseEntity<String> updateFavoriteMovie(@RequestParam String memberId, @RequestBody UpdateFavoriteMovie dto) {
         try {
             // 즐겨찾기 영화 수정 서비스 호출
@@ -119,7 +119,7 @@ public class FavoriteMovieController {
 
     //삭제
     // memberId로 모든 즐겨찾기 영화 삭제 API
-    @DeleteMapping("/delete-all")
+    @DeleteMapping("/enter/delete-all")
     public ResponseEntity<String> deleteFavoriteMovies(@RequestParam String memberId) {
         try {
             // 즐겨찾기 영화 삭제 서비스 호출

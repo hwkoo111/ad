@@ -20,7 +20,7 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     // 리뷰 등록
-    @PostMapping
+    @PostMapping("/enter")
     public ResponseEntity<String> createReview(@RequestBody ReviewDto dto, @AuthenticationPrincipal UserDetails userDetails) {
         String memberId = userDetails.getUsername();
         try {
@@ -32,19 +32,19 @@ public class ReviewController {
     }
 
     // 영화별 리뷰 조회
-    @GetMapping("/movie/{movieId}")
+    @GetMapping("/view/{movieId}")
     public ResponseEntity<List<ReviewResponseDto>> getMovieReviews(@PathVariable Long movieId) {
         return ResponseEntity.ok(reviewService.getReviewsByMovie(movieId));
     }
 
     // 영화별 평균 별점 조회
-    @GetMapping("/movie/{movieId}/average")
+    @GetMapping("/view/{movieId}/average")
     public ResponseEntity<ReviewAverageDto> getAverageRating(@PathVariable Long movieId) {
         return ResponseEntity.ok(reviewService.getAverageRating(movieId));
     }
 
     // 리뷰 수정
-    @PutMapping("/{reviewId}")
+    @PutMapping("/enter/put/{reviewId}")
     public ResponseEntity<String> updateReview(@PathVariable Long reviewId, @RequestBody ReviewDto dto, @AuthenticationPrincipal UserDetails userDetails) {
         String memberId = userDetails.getUsername();
         try {
@@ -56,7 +56,7 @@ public class ReviewController {
     }
 
     // 리뷰 삭제
-    @DeleteMapping("/{reviewId}")
+    @DeleteMapping("/enter/delete/{reviewId}")
     public ResponseEntity<String> deleteReview(@PathVariable Long reviewId, @AuthenticationPrincipal UserDetails userDetails) {
         String memberId = userDetails.getUsername();
         try {

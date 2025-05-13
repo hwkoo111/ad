@@ -10,11 +10,12 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/api/movie")
 public class MovieController {
 
     private final MovieService movieService;
 
-    @GetMapping("/movie")
+    @GetMapping
     public ResponseEntity<Map<String, List<Map<String, String>>>> getMoviesForHome() {
         return ResponseEntity.ok(movieService.getMoviesForMainPage());
     }

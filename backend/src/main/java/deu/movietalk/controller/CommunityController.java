@@ -3,6 +3,7 @@ package deu.movietalk.controller;
 import deu.movietalk.domain.CommunityPost;
 import deu.movietalk.dto.*;
 import deu.movietalk.service.CommunityService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -18,17 +19,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/community")
+@AllArgsConstructor
 public class CommunityController {
 
     private final CommunityService communityService;
 
-    @Autowired
-    public CommunityController(CommunityService communityService) {
-        this.communityService = communityService;
-    }
-
     //게시글 작성
-    @PostMapping("/posts")
+    @PostMapping("/enter/posts")
     public ResponseEntity<CommunityDto> createPost(@RequestBody CommunityDto communityDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String memberId = authentication.getName(); // JWT에서 추출한 memberId
@@ -36,6 +33,7 @@ public class CommunityController {
         CommunityDto saved = communityService.createPost(communityDto, memberId);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
+
     //게시글 조회(내용x)
     @GetMapping("/posts")
     public ResponseEntity<?> getPostSummaries(@RequestParam(defaultValue = "0") int page) {
@@ -68,7 +66,7 @@ public class CommunityController {
         }
     }
     //게시글 삭제
-    @DeleteMapping("/posts/{postId}")
+    @DeleteMapping("/enter/delete/{postId}")
     public ResponseEntity<?> deletePost(@PathVariable Long postId) {
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -83,7 +81,7 @@ public class CommunityController {
         }
     }
     // 게시글 수정
-    @PutMapping("/posts/{postId}")
+    @PutMapping("/enter/put/{postId}")
     public ResponseEntity<String> updatePost(@PathVariable Long postId,
                                              @RequestBody CommunityUpdateDto dto) {
         try {

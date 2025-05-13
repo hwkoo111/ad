@@ -1,0 +1,27 @@
+.movie-container {
+  display: flex;
+  justify-content: space-between;  /* 카테고리들을 가로로 나열 */
+  gap: 20px;  /* 카테고리 간 간격 */
+}
+
+.movie-category {
+  flex: 1;  /* 각 카테고리가 균등하게 공간을 차지하도록 설정 */
+  padding: 10px;
+}
+
+.movie-items {
+  display: flex;
+  flex-wrap: wrap;  /* 항목들이 줄바꿈 되도록 설정 */
+  gap: 10px;  /* 항목들 간 간격 */
+}
+
+.movie-item {
+  text-align: center;
+  width: 150px;  /* 각 항목의 너비 설정 */
+}
+
+.movie-item img {
+  width: 150px;    /* 이미지 너비를 고정 */
+  height: 215px;   /* 이미지 높이를 고정 */
+  object-fit: cover;  /* 이미지 비율을 유지하면서 영역에 맞게 자르기 */
+}

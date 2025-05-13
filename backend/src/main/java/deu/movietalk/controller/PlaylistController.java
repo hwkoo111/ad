@@ -18,12 +18,12 @@ import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/playlist")
+@RequestMapping("/api/playlist")
 public class PlaylistController {
     private final PlaylistService playlistService;
     private final MovieRepository movieRepository;
 
-    @GetMapping // URL: /playlist
+    @GetMapping ("/view")
     public List<PlayListViewDto> showPlaylistPage() {
         return playlistService.getPlaylistViews();
     }
@@ -59,7 +59,7 @@ public class PlaylistController {
     }
 
     //플레이리스트 삭제
-    @DeleteMapping("delete/{playListId}")
+    @DeleteMapping("/enter/delete/{playListId}")
     public ResponseEntity<?> deletePlaylist(@PathVariable Long playListId, Authentication authentication) {
         try {
             String memberId = authentication.getName();
@@ -73,7 +73,7 @@ public class PlaylistController {
     }
 
     //플레이리스트 조회 - 상세 정보 표시
-    @GetMapping("/{playListId}")
+    @GetMapping("/view/{playListId}")
     public ResponseEntity<?> getPlaylistDetail(@PathVariable Long playListId) {
         try {
             PlayListDetailDto detailDto = playlistService.getPlaylistDetail(playListId);
@@ -84,7 +84,7 @@ public class PlaylistController {
     }
 
     //플레이리스트 수정
-    @PutMapping("/{playListId}")
+    @PutMapping("/enter/put/{playListId}")
     public ResponseEntity<String> updatePlaylist(@PathVariable Long playListId,
                                                  @RequestBody PlayListUpdateRequestDto dto) {
         try {

@@ -1,0 +1,96 @@
+.playlist-page {
+  font-family: Arial, sans-serif;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.error-message {
+  color: #e74c3c;
+  text-align: center;
+}
+
+.loading-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.no-content-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.playlist-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.playlist-item {
+  background-color: #fff;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.playlist-item:hover {
+  background-color: #f1f1f1;
+}
+
+.playlist-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.playlist-date,
+.playlist-member {
+  font-size: 1rem;
+  color: #888;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pagination-btn {
+  padding: 8px 15px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-btn:hover {
+  background-color: #444;
+}
+
+.page-info {
+  font-size: 1rem;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

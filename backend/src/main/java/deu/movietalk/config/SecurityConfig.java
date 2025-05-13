@@ -77,8 +77,10 @@ public class SecurityConfig {
 
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/login", "/movie/**","/signup").permitAll()
+                        .requestMatchers("/login", "/api/movie/**","/signup", "/api/playlist/view/**", "api/community/posts/**"
+                        ,"/api/reviews/view/**", "/api/friend").permitAll()
                         .requestMatchers("/api/community/**").hasAnyRole("USER", "ADMIN")
+                        .requestMatchers("/api/playlist/**").hasAnyRole("USER", "ADMIN")
 //                        .requestMatchers("/api/community/**").hasRole("ADMIN")
                         .anyRequest().authenticated());
 

@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/movie")
+@RequestMapping("/api/movie")
 @AllArgsConstructor
 public class MovieFindController {
 
