@@ -42,9 +42,12 @@ public class SignService {
         if (memberRepository.existsByNickname(signUpDto.getNickname())) {
             throw new IllegalArgumentException("이미 존재하는 닉네임입니다.");
         }
-
+        if (memberRepository.existsByEmail(signUpDto.getEmail())) {
+            throw new IllegalArgumentException("이미 존재하는 이메일입니다.");
+        }
         Member member = Member.builder()
                 .memberId(signUpDto.getId())
+                .email(signUpDto.getEmail())
                 .nickname(signUpDto.getNickname())
                 .role("ROLE_USER")
                 .password(bCryptPasswordEncoder.encode(signUpDto.getPassword()))
