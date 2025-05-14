@@ -15,8 +15,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -26,20 +24,14 @@ public class CommunityController {
 
     private final CommunityService communityService;
 
+    //게시글 작성
     @PostMapping("/enter/posts")
-    public ResponseEntity<?> createPost(@RequestBody CommunityDto communityDto) {
+    public ResponseEntity<CommunityDto> createPost(@RequestBody CommunityDto communityDto) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String memberId = authentication.getName(); // JWT에서 추출한 memberId
 
-        // 게시글 저장
         CommunityDto saved = communityService.createPost(communityDto, memberId);
-
-        // 응답 메시지와 함께 게시글 반환
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "게시글이 성공적으로 작성되었습니다.");
-        response.put("post", saved);
-
-        return new ResponseEntity<>(response, HttpStatus.CREATED);
+        return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
 
     //게시글 조회(내용x)
@@ -146,7 +138,7 @@ public class CommunityController {
         try {
             Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String memberId = authentication.getName(); // JWT에서 추출
-            System.out.println(memberId);
+
             communityService.addComment(postId, memberId, dto);
             return ResponseEntity.status(HttpStatus.CREATED).body("댓글이 등록되었습니다.");
         } catch (IllegalArgumentException e) {

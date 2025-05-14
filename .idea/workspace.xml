@@ -6,10 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="006ff2a7-d303-45ab-9c74-30f5766323c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/auth/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/auth/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/styles/Navigation.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/Navigation.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/controller/CommunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/controller/CommunityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/JWTFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/JWTFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/LoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/service/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/service/MovieServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/styles/Homepage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/Homepage.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,31 +66,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build backend.executor": "Run",
-    "Gradle.backend [:MovietalkApplication.main()].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "Spring Boot.MovietalkApplication.executor": "Run",
-    "git-widget-placeholder": "backend__jsh",
-    "kotlin-language-version-configured": "true",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.backend [:MovietalkApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend__mk&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gyung23\Desktop\MovieTalk\frontend\src\styles" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MovietalkApplication">
+  <component name="RunManager">
     <configuration name="MovietalkApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="deu.movietalk.MovietalkApplication" />
       <module name="movietalk.main" />
@@ -102,22 +97,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovietalkApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="movietalk.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="deu.movietalk.MovietalkApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="deu.movietalk.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.MovietalkApplication" />
         <item itemvalue="Application.MovietalkApplication" />
         <item itemvalue="Application.MovietalkApplication" />
       </list>
@@ -139,21 +120,5 @@
       <path value="$PROJECT_DIR$/backend" />
       <path value="$PROJECT_DIR$/frontend" />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/deu/movietalk/MovietalkApplication.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/deu/movietalk/MovietalkApplication.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -53,22 +53,30 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     //로그인 성공시 실행하는 메소드 (여기서 JWT를 발급하면 됨)
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, JsonProcessingException {
         CustomMemberDetails customMemberDetails = (CustomMemberDetails) authentication.getPrincipal();
 
         String username = customMemberDetails.getUsername();
 
+        // 권한 가져오기
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
         GrantedAuthority auth = iterator.next();
 
         String role = auth.getAuthority();
 
-        String token = jwtUtil.createJwt(username, role, 60*60*1000L);
+        // JWT 생성
+        String token = jwtUtil.createJwt(username, role, 60 * 60 * 1000L); // 만료시간 1시간 설정
 
-        response.addHeader("Authorization", "Bearer " + token);
+        // JSON 응답 생성
+        Map<String, String> responseBody = new HashMap<>();
+        responseBody.put("token", token);  // JWT 토큰을 JSON 응답 본문에 추가
+
+        // 응답을 JSON 형식으로 반환
+        response.setContentType("application/json");
+        // ObjectMapper의 writeValueAsString을 사용해 JSON 문자열로 변환 후 응답 본문에 작성
+        response.getWriter().write(new ObjectMapper().writeValueAsString(responseBody));
     }
-
 
 
     //로그인 실패시 실행하는 메소드

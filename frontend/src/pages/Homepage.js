@@ -7,7 +7,7 @@ const MovieList = () => {
   const [movies, setMovies] = useState({}); // 영화 데이터를 저장할 상태
   const [errorMessage, setErrorMessage] = useState(''); // 에러 메시지 상태
   const location = useLocation();
-
+  
   useEffect(() => {
     // location.state를 통해 전달된 메시지 알림
     if (location.state?.successMessage) {
@@ -40,65 +40,38 @@ const MovieList = () => {
   }
 
   return (
-    <div>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* 에러 메시지 표시 */}
+      <div>
+        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* 에러 메시지 표시 */}
 
-      <div className="movie-container">
-        {/* 상영작 카테고리 */}
-        <div className="movie-category">
-          <h3>상영작</h3>
-          <div className="movie-items">
-            {movies['상영작'].map((movie, index) => (
-              <div key={index} className="movie-item">
-                <img src={movie.posterUrl || logo} alt={movie.title} />
-                <p>{movie.title}</p>
-              </div>
-            ))}
+        <div className="movie-container">
+          {/* 상영작 카테고리 */}
+          <div className="movie-category">
+            <h3>상영작</h3>
+            <div className="movie-items">
+              {movies['상영작'].map((movie, index) => (
+                <div key={index} className="movie-item">
+                  <img src={movie.posterUrl || logo} alt={movie.title} />
+                  <p>{movie.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 호러 카테고리 */}
+          <div className="movie-category">
+            <h3>호러</h3>
+            <div className="movie-items">
+              {movies['호러'].map((movie, index) => (
+                <div key={index} className="movie-item">
+                  <img src={movie.posterUrl || logo} alt={movie.title} />
+                  <p>{movie.title}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* 액션 카테고리 */}
-        <div className="movie-category">
-          <h3>액션</h3>
-          <div className="movie-items">
-            {movies['액션'].map((movie, index) => (
-              <div key={index} className="movie-item">
-                <img src={movie.posterUrl || logo} alt={movie.title} />
-                <p>{movie.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 호러 카테고리 */}
-        <div className="movie-category">
-          <h3>호러</h3>
-          <div className="movie-items">
-            {movies['호러'].map((movie, index) => (
-              <div key={index} className="movie-item">
-                <img src={movie.posterUrl || logo} alt={movie.title} />
-                <p>{movie.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        {/* 공포 카테고리 */}
-        <div className="movie-category">
-          <h3>공포</h3>
-          <div className="movie-items">
-            {movies['공포']?.map((movie, index) => (
-              <div key={index} className="movie-item">
-                <img src={movie.posterUrl || logo} alt={movie.title} />
-                <p>{movie.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
-    </div>
-  );
-};
+    );
+  };
 
-export default MovieList;
+  export default MovieList;
