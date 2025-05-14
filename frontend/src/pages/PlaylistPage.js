@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Pagination from '../components/Pagination';  // Pagination 컴포넌트
-import styles from "../styles.module.css";  // 스타일 적용 (필요시)
+import "../styles/PlaylistPage.css";  // 스타일 적용 (일반 CSS 방식)
 import { Link } from 'react-router-dom';
 
 const PlaylistPage = () => {
@@ -39,22 +39,22 @@ const PlaylistPage = () => {
   }, []);  // 컴포넌트가 처음 렌더링될 때 데이터 가져오기
 
   return (
-    <div className={styles.container}>
+    <div className="container">
       <h1>플레이리스트 목록</h1>
 
       {/* 플레이리스트 목록 출력 */}
       <ul className="playlist-list">
-      {currentItems.map((playlist, index) => (
-        <li key={index} className="playlist-item">
-          <div className="playlist-row">
-            <Link to={`/playlist/view/${playlist.playListId}`} className="playlist-link">
-              <span className="playlist-name">{playlist.playListName}</span>
-              <span className="playlist-date">{playlist.playListDate}</span>
-              <span className="playlist-member">작성자: {playlist.memberNickname}</span>
-            </Link>
-          </div>
-        </li>
-      ))}
+        {currentItems.map((playlist, index) => (
+          <li key={index} className="playlist-item">
+            <div className="playlist-row">
+              <Link to={`/playlist/view/${playlist.playListId}`} className="playlist-link">
+                <span className="playlist-name">{playlist.playListName}</span>
+                <span className="playlist-date">{playlist.playListDate}</span>
+                <span className="playlist-member">작성자: {playlist.memberNickname}</span>
+              </Link>
+            </div>
+          </li>
+        ))}
       </ul>
 
       {/* 페이지네이션 컴포넌트 */}
