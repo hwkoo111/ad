@@ -79,6 +79,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests((auth) -> auth
                         .requestMatchers("/login", "/api/movie/**","/signup", "/api/playlist/view/**", "api/community/posts/**"
                         ,"/api/reviews/view/**", "/api/friend").permitAll()
+                        .requestMatchers("/login").anonymous()  // 로그인하지 않은 사용자만 접근 가능
+                        .requestMatchers("/signup").anonymous()  // 로그인하지 않은 사용자만 접근 가능
                         .requestMatchers("/api/community/**").hasAnyRole("USER", "ADMIN")
                         .requestMatchers("/api/playlist/**").hasAnyRole("USER", "ADMIN")
 //                        .requestMatchers("/api/community/**").hasRole("ADMIN")

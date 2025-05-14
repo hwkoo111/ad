@@ -1,10 +1,13 @@
-/* Navigation.css */
 nav {
   display: flex;
   justify-content: center; /* 가운데 정렬 */
   gap: 20px; /* 항목 간 간격 */
   background-color: #333; /* 배경색 */
-  padding: 10px 0; /* 상하 패딩 */
+  padding: 20px 0; /* 상하 패딩 증가 */
+  position: fixed; /* 고정 위치 */
+  top: 60px; /* 위에서 60px 만큼 떨어지게 설정 */
+  width: 100%; /* 화면 너비 전체 */
+  z-index: 1000; /* 다른 콘텐츠 위에 표시 */
 }
 
 nav div {
@@ -28,4 +31,52 @@ nav a:hover {
 nav a.active {
   font-weight: bold; /* 활성화된 링크는 굵게 */
   color: #ffcc00; /* 활성화된 링크 색상 */
+}
+
+.auth-container {
+  display: flex;
+  gap: 20px; /* 항목 간 간격 */
+  background-color: #333; /* 배경색 */
+  padding: 20px 0; /* 상하 패딩 증가 */
+  position: fixed; /* 고정 위치 */
+  top: 0; /* 위에서 60px 만큼 떨어지게 설정 */
+  width: 100%; /* 화면 너비 전체 */
+  z-index: 1000; /* 다른 콘텐츠 위에 표시 */
+  justify-content: flex-end; /* 오른쪽 끝에 정렬 */
+  
+}
+
+.auth-section {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-end; /* 오른쪽 끝에 정렬 */
+  
+}
+
+.auth-link {
+  color: white; /* 링크 텍스트 색상 */
+  text-decoration: none; /* 밑줄 제거 */
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  right : 20px;
+}
+
+.auth-link:hover {
+  background-color: #444; /* 마우스 오버 시 배경색 */
+}
+
+.logout-btn {
+  background: none;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  right : 20px;
+}
+
+.logout-btn:hover {
+  background-color: #f8f8f8;
 }
