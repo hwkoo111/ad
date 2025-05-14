@@ -21,7 +21,6 @@ import java.util.Set;
 @RequestMapping("/api/playlist")
 public class PlaylistController {
     private final PlaylistService playlistService;
-    private final MovieRepository movieRepository;
 
     @GetMapping ("/view")
     public List<PlayListViewDto> showPlaylistPage() {

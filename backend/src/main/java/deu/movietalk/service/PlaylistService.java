@@ -82,19 +82,20 @@ public class PlaylistService {
         return results; // 비어있더라도 그대로 리턴 -> 200 코드
     }
 
-    public List<PlayListViewDto> getPlaylistViews() {   //최신순
+    public List<PlayListViewDto> getPlaylistViews() {   // 최신순
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm:ss");
 
         return playlistRepository.findAll().stream()
                 .sorted(Comparator.comparing((PlayList p) ->
                         LocalDateTime.parse(p.getPlayListDate(), formatter)).reversed())
                 .map(p -> new PlayListViewDto(
+                        p.getPlayListId(),  // playListId 추가
                         p.getPlayListName(),
                         p.getPlayListDate(),
                         p.getMember().getNickname()))
                 .collect(Collectors.toList());
-
     }
+
 
     @Transactional
     public void deletePlaylist(Long playListId, String memberId) {

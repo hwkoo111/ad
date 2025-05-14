@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="006ff2a7-d303-45ab-9c74-30f5766323c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/auth/LoginForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/auth/LoginForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/Pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Pagination.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/controller/PlaylistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/controller/PlaylistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/dto/PlayListViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/dto/PlayListViewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/service/PlaylistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/service/PlaylistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/pages/PlaylistPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/PlaylistPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/styles/PlaylistPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/styles/PlaylistPage.css" afterDir="false" />
     </list>

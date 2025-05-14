@@ -1,0 +1,70 @@
+.playlist-detail {
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #333;
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* 항목들이 왼쪽으로 정렬 */
+  gap: 20px; /* 항목들 간 간격 */
+  margin-top: 20px;
+}
+
+.movie-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* 항목들 간 간격 */
+  width: 100%;
+}
+
+.movie-item {
+  text-align: center;
+  width: 150px; /* 각 항목의 너비 설정 */
+}
+
+.movie-item h4 {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #333;
+}
+
+.movie-item p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.movie-item img {
+  width: 150px;    /* 이미지 너비를 고정 */
+  height: 215px;   /* 이미지 높이를 고정 */
+  object-fit: cover;  /* 이미지 비율을 유지하면서 영역에 맞게 자르기 */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 이미지에 그림자 추가 */
+}
+
+/* 기본 이미지 스타일 */
+.movie-item img[alt="No poster"] {
+  border: 1px solid #ddd;
+  background-color: #f4f4f4;
+  padding: 40px;
+  text-align: center;
+  line-height: 215px;
+  color: #aaa;
+  font-size: 1rem;
+}

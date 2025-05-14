@@ -63,6 +63,15 @@
   overflow: hidden;     /* 내용이 넘칠 경우 잘림 */
 }
 
+/* Link 스타일링 */
+.playlist-link {
+  text-decoration: none; /* 링크의 기본 밑줄 제거 */
+  width: 100%;            /* 전체 공간을 차지하게 설정 */
+  display: flex;          /* 링크 요소가 flex로 동작하도록 설정 */
+  align-items: center;    /* 수평 중앙 정렬 */
+  justify-content: space-between; /* 내용이 양옆으로 정렬 */
+}
+
 .playlist-row {
   display: flex;
   flex-direction: row;

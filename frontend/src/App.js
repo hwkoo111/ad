@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage';
 import CommunityPage from './pages/CommunityPage';
 import PlaylistPage from './pages/PlaylistPage';
 import FindFriendPage from './pages/FindFriendPage';
+import PlaylistDetailPage from './pages/PlaylistDetailPage'; 
 import Navigation from './components/Navigation.js'
 
 
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path="/community" element={<CommunityPage />} />
                 <Route path="/playlist" element={<PlaylistPage />} />
                 <Route path="/findfriend" element={<FindFriendPage />} />
+                <Route path="/playlist/view/:playListId" element={<PlaylistDetailPage />} />
             </Routes>
         </BrowserRouter>
     );
