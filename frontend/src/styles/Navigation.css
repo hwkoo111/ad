@@ -32,6 +32,12 @@ nav a.active {
   font-weight: bold; /* 활성화된 링크는 굵게 */
   color: #ffcc00; /* 활성화된 링크 색상 */
 }
+.nav-links {
+  display: flex;
+  gap: 300px; /* 메뉴 항목 사이 간격 */
+  justify-content: center;
+  align-items: center;
+}
 
 .auth-container {
   display: flex;
@@ -50,10 +56,10 @@ nav a.active {
   display: flex;
   gap: 12px;
   align-items: center;
-  justify-content: flex-end; /* 오른쪽 끝에 정렬 */
-  
+  justify-content: flex-end;
+  margin-right: 20px;
+  color: white;        /* ✅ 내부 텍스트 전체에 흰색 적용 */
 }
-
 .auth-link {
   color: white; /* 링크 텍스트 색상 */
   text-decoration: none; /* 밑줄 제거 */
@@ -74,7 +80,7 @@ nav a.active {
   padding: 5px 10px;
   font-size: 0.9rem;
   cursor: pointer;
-  right : 20px;
+  color: white; /* ✅ 추가 */
 }
 
 .logout-btn:hover {

@@ -57,6 +57,32 @@ const MovieList = () => {
             </div>
           </div>
 
+           {/* 액션 카테고리 */}
+          <div className="movie-category">
+            <h3>액션</h3>
+            <div className="movie-items">
+              {movies['액션'].map((movie, index) => (
+                <div key={index} className="movie-item">
+                  <img src={movie.posterUrl || logo} alt={movie.title} />
+                  <p>{movie.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+           {/* 드라마 카테고리 */}
+          <div className="movie-category">
+            <h3>드라마</h3>
+            <div className="movie-items">
+              {movies['드라마'].map((movie, index) => (
+                <div key={index} className="movie-item">
+                  <img src={movie.posterUrl || logo} alt={movie.title} />
+                  <p>{movie.title}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* 호러 카테고리 */}
           <div className="movie-category">
             <h3>호러</h3>

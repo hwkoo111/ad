@@ -35,9 +35,16 @@ public class MovieServiceImpl implements MovieService {
         List<Movie> horror = movieRepository
                 .findTop10ByGenreContainingIgnoreCaseAndPosterUrlIsNotNullOrderByReleaseDtsDesc("스릴러");
 
+        List<Movie> action = movieRepository
+                .findTop10ByGenreContainingIgnoreCaseAndPosterUrlIsNotNullOrderByReleaseDtsDesc("액션");
+        List<Movie> drama = movieRepository
+                .findTop10ByGenreContainingIgnoreCaseAndPosterUrlIsNotNullOrderByReleaseDtsDesc("드라마");
+        
         result.put("상영작", toSimpleList(recent));
         result.put("호러", toSimpleList(horror.subList(0, Math.min(5, horror.size()))));
-
+        result.put("드라마", toSimpleList(drama.subList(0, Math.min(5, drama.size()))));
+        result.put("액션", toSimpleList(action.subList(0, Math.min(5, action.size()))));
+        
         return result;
     }
 
