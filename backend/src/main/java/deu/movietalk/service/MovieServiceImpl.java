@@ -32,11 +32,23 @@ public class MovieServiceImpl implements MovieService {
                 .limit(5)
                 .collect(Collectors.toList());
 
+        // 각 장르에 맞는 영화를 조회 (호러, 액션, 로맨스)
         List<Movie> horror = movieRepository
                 .findTop10ByGenreContainingIgnoreCaseAndPosterUrlIsNotNullOrderByReleaseDtsDesc("스릴러");
 
+        List<Movie> action = movieRepository
+                .findTop10ByGenreContainingIgnoreCaseAndPosterUrlIsNotNullOrderByReleaseDtsDesc("액션");
+
+        List<Movie> romance = movieRepository
+                .findTop10ByGenreContainingIgnoreCaseAndPosterUrlIsNotNullOrderByReleaseDtsDesc("공포");
+
+
+
+        // Map에 데이터를 넣기
         result.put("상영작", toSimpleList(recent));
         result.put("호러", toSimpleList(horror.subList(0, Math.min(5, horror.size()))));
+        result.put("액션", toSimpleList(action.subList(0, Math.min(5, action.size()))));
+        result.put("공포", toSimpleList(romance.subList(0, Math.min(5, romance.size()))));
 
         return result;
     }
