@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
-  const { setIsLoggedIn } = useContext(AuthContext); // ✅ 추가
+  const { setIsLoggedIn, setNickname } = useContext(AuthContext);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -24,10 +24,14 @@ const LoginForm = () => {
       if (response.ok) {
         const data = await response.json();
         const token = data.token;
-
+        const nickname = data.nickname;
+        console.log(data);
         localStorage.setItem('token', token);
-        setIsLoggedIn(true); // ✅ 상태 변경을 반드시 호출
-
+        localStorage.setItem('nickname', nickname); // ✅ 저장
+        setIsLoggedIn(true);
+        setNickname(nickname); // ✅ context에 저장
+        console.log(nickname);
+        alert('로그인 성공!')
         setSuccessMessage('로그인 성공!');
         setErrorMessage('');
         navigate('/'); // 홈으로 이동

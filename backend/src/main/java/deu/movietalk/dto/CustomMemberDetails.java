@@ -15,7 +15,9 @@ public class CustomMemberDetails implements UserDetails {
 
         this.member = member;
     }
-
+    public Member getMember() { // ✅ 이 메서드 추가
+        return member;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

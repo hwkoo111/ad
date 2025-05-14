@@ -57,7 +57,8 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         CustomMemberDetails customMemberDetails = (CustomMemberDetails) authentication.getPrincipal();
 
         String username = customMemberDetails.getUsername();
-
+        String nickname = customMemberDetails.getMember().getNickname();
+        System.out.println(nickname);
         // 권한 가져오기
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
@@ -71,9 +72,9 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         // JSON 응답 생성
         Map<String, String> responseBody = new HashMap<>();
         responseBody.put("token", token);  // JWT 토큰을 JSON 응답 본문에 추가
-
-        // 응답을 JSON 형식으로 반환
-        response.setContentType("application/json");
+        responseBody.put("nickname", nickname);
+        response.setCharacterEncoding("UTF-8"); // ✅ 추가
+        response.setContentType("application/json;charset=UTF-8"); // ✅ 인코딩 명시
         // ObjectMapper의 writeValueAsString을 사용해 JSON 문자열로 변환 후 응답 본문에 작성
         response.getWriter().write(new ObjectMapper().writeValueAsString(responseBody));
     }
