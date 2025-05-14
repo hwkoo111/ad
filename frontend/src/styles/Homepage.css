@@ -2,6 +2,8 @@
   display: flex;
   justify-content: space-between;  /* 카테고리들을 가로로 나열 */
   gap: 20px;  /* 카테고리 간 간격 */
+  position: relative;  /* 상대 위치로 설정 */
+  top: 120px;  /* 네비게이션 바 아래에 위치하도록 설정 */
 }
 
 .movie-category {
