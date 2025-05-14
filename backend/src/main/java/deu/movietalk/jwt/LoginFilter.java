@@ -53,7 +53,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
     //로그인 성공시 실행하는 메소드 (여기서 JWT를 발급하면 됨)
     @Override
-    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) {
+    protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authentication) throws IOException, JsonProcessingException {
         CustomMemberDetails customMemberDetails = (CustomMemberDetails) authentication.getPrincipal();
 
         String username = customMemberDetails.getUsername();
@@ -66,7 +66,14 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         String token = jwtUtil.createJwt(username, role, 60*60*1000L);
 
-        response.addHeader("Authorization", "Bearer " + token);
+        // JSON 응답 생성
+        Map<String, String> responseBody = new HashMap<>();
+        responseBody.put("token", token);  // JWT 토큰을 JSON 응답 본문에 추가
+
+        // 응답을 JSON 형식으로 반환
+        response.setContentType("application/json");
+        // ObjectMapper의 writeValueAsString을 사용해 JSON 문자열로 변환 후 응답 본문에 작성
+        response.getWriter().write(new ObjectMapper().writeValueAsString(responseBody));
     }
 
 
