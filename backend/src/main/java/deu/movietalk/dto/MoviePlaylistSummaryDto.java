@@ -12,3 +12,4 @@ public class MoviePlaylistSummaryDto {
     private String titleEng;
     private String posterUrl;
 }
+d

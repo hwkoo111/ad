@@ -10,7 +10,7 @@ const Navigation = () => {
   // 브라우저 저장소에서 토큰 유무 확인
   useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log("token : " + token);
+    // console.log("token : " + token);
     setIsLoggedIn(!!token);
   }, []);
 
