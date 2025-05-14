@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="006ff2a7-d303-45ab-9c74-30f5766323c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/LoginFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/LoginFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/service/MovieServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/service/MovieServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/Homepage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/controller/CommunityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/controller/CommunityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/JWTFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/deu/movietalk/jwt/JWTFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
