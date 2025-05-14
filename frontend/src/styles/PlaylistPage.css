@@ -1,4 +1,4 @@
-.playlist-page {
+.container {
   font-family: Arial, sans-serif;
   max-width: 1000px;
   margin: 20px auto;
@@ -6,30 +6,15 @@
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;  /* 상대 위치 설정 */
+  top: 120px;  /* 상단에서 120px만큼 떨어지도록 설정 */
 }
 
-.heading {
+.container h1 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
   color: #333;
-}
-
-.error-message {
-  color: #e74c3c;
-  text-align: center;
-}
-
-.loading-message {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #888;
-}
-
-.no-content-message {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #888;
 }
 
 .playlist-list {
@@ -43,7 +28,6 @@
   max-width: 1000px; /* 최대 너비 */
   margin: 0 auto; /* 중앙 정렬 */
 }
-
 
 .playlist-item {
   background-color: #fff;
@@ -63,7 +47,6 @@
   overflow: hidden;     /* 내용이 넘칠 경우 잘림 */
 }
 
-/* Link 스타일링 */
 .playlist-link {
   text-decoration: none; /* 링크의 기본 밑줄 제거 */
   width: 100%;            /* 전체 공간을 차지하게 설정 */
@@ -72,38 +55,22 @@
   justify-content: space-between; /* 내용이 양옆으로 정렬 */
 }
 
-.playlist-row {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  width: 100%;
-  justify-content: flex-start;
-}
-
-.playlist-item:hover {
-  background-color: #f1f1f1;
-}
-
 .playlist-name {
   font-weight: bold;
-  min-width: 300px;
   color: #333;
 }
 
-.playlist-date {
-  color: #666;
-  min-width: 150px;
-}
-
+.playlist-date,
 .playlist-member {
   color: #666;
 }
 
+/* 페이지네이션 스타일 */
 .pagination {
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 20px; /* 페이지네이션과 플레이리스트 항목 사이에 간격을 줍니다 */
 }
 
 .pagination-btn {

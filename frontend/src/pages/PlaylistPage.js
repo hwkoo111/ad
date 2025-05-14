@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Pagination from '../components/Pagination';  // Pagination 컴포넌트
-import styles from "../styles/PlaylistPage.css";  // 스타일 적용 (필요시)
+import styles from "../styles.module.css";  // 스타일 적용 (필요시)
 import { Link } from 'react-router-dom';
 
 const PlaylistPage = () => {
@@ -47,7 +47,6 @@ const PlaylistPage = () => {
       {currentItems.map((playlist, index) => (
         <li key={index} className="playlist-item">
           <div className="playlist-row">
-            {console.log(playlist.playListId)}
             <Link to={`/playlist/view/${playlist.playListId}`} className="playlist-link">
               <span className="playlist-name">{playlist.playListName}</span>
               <span className="playlist-date">{playlist.playListDate}</span>
