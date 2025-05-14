@@ -58,13 +58,15 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
 
         String username = customMemberDetails.getUsername();
 
+        // 권한 가져오기
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         Iterator<? extends GrantedAuthority> iterator = authorities.iterator();
         GrantedAuthority auth = iterator.next();
 
         String role = auth.getAuthority();
 
-        String token = jwtUtil.createJwt(username, role, 60*60*1000L);
+        // JWT 생성
+        String token = jwtUtil.createJwt(username, role, 60 * 60 * 1000L); // 만료시간 1시간 설정
 
         // JSON 응답 생성
         Map<String, String> responseBody = new HashMap<>();
@@ -75,7 +77,6 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter {
         // ObjectMapper의 writeValueAsString을 사용해 JSON 문자열로 변환 후 응답 본문에 작성
         response.getWriter().write(new ObjectMapper().writeValueAsString(responseBody));
     }
-
 
 
     //로그인 실패시 실행하는 메소드

@@ -78,13 +78,13 @@
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gyung23\Desktop\MovieTalk\frontend\src\styles" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.MovietalkApplication">
+  <component name="RunManager">
     <configuration name="MovietalkApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="deu.movietalk.MovietalkApplication" />
       <module name="movietalk.main" />
@@ -98,22 +98,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovietalkApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="movietalk.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="deu.movietalk.MovietalkApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="deu.movietalk.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.MovietalkApplication" />
         <item itemvalue="Application.MovietalkApplication" />
         <item itemvalue="Spring Boot.MovietalkApplication" />
         <item itemvalue="Application.MovietalkApplication" />
@@ -137,21 +123,5 @@
       <path value="$PROJECT_DIR$/backend" />
       <path value="$PROJECT_DIR$/frontend" />
     </ignored-roots>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/deu/movietalk/MovietalkApplication.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/deu/movietalk/MovietalkApplication.java</url>
-          <line>5</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

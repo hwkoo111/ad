@@ -36,11 +36,7 @@ const LoginForm = () => {
                 setSuccessMessage('로그인 성공!');
 //              setSuccessMessage(token)
                 setErrorMessage('');  // 이전의 오류 메시지 초기화
-                navigate('/', {
-                    state: {
-                        successMessage: `로그인 성공!\n토큰 테스트: ${token}`
-                    }
-                });
+                navigate('/');
 
                 } else {
                 // 응답 코드에 따른 상세 에러 메시지 처리
