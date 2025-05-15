@@ -10,4 +10,5 @@ import lombok.*;
 public class CommunityUpdateDto {
     private String title;
     private String content;
+    private Long categoryId;
 }

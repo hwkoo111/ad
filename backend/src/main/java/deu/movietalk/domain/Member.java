@@ -21,10 +21,10 @@ public class Member {
     @Column
     private String email;
 
-    @Column(nullable = false, unique=true)
+    @Column(nullable = true)
     private String password;
 
-    @Column(nullable = false,unique=true)
+    @Column(nullable = true,unique=true)
     private String nickname;
     @Column(nullable = false)
     private String role;

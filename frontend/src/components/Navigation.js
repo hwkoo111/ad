@@ -4,17 +4,35 @@ import { AuthContext } from '../auth/AuthContext';
 import '../styles/Navigation.css';
 
 const Navigation = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn, nickname ,setNickname  } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
+const handleLogout = async () => {
+  const confirmed = window.confirm('정말 로그아웃하시겠습니까?');
+  if (confirmed) {
+    try {
+      await fetch('http://localhost:8080/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+    } catch (e) {
+      console.error('로그아웃 요청 실패', e);
+    }
     localStorage.removeItem('token');
+    localStorage.removeItem('nickname');
     setIsLoggedIn(false);
+    setNickname('');
+    alert('로그아웃되었습니다.');
     navigate('/');
-  };
+  }
+};
+
 
   return (
     <nav>
+
+      <div className="nav-logo">MovieTalk</div>
+      
       <div className="nav-links">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/community">Community</NavLink>
@@ -26,7 +44,7 @@ const Navigation = () => {
         <div className="auth-section">
           {isLoggedIn ? (
             <>
-              <span className="welcome-text">환영합니다!</span>
+              <span className="welcome-text">{nickname}님 환영합니다!</span>
               <button className="logout-btn" onClick={handleLogout}>Logout</button>
             </>
           ) : (

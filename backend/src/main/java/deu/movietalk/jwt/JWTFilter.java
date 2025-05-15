@@ -4,6 +4,7 @@ import deu.movietalk.domain.Member;
 import deu.movietalk.dto.CustomMemberDetails;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -30,17 +31,29 @@ public class JWTFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
+        String token = null;
         String authorization = request.getHeader("Authorization");
 
-        // JWT 없거나 Bearer 아닌 경우 → 로그인 요구
-        if (authorization == null || !authorization.startsWith("Bearer ")) {
+        if (authorization != null && authorization.startsWith("Bearer ")) {
+            token = authorization.substring(7);
+        } else {
+            // 쿠키에서 JWT 찾기
+            if (request.getCookies() != null) {
+                for (Cookie cookie : request.getCookies()) {
+                    if ("Authorization".equals(cookie.getName())) {
+                        token = cookie.getValue();
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (token == null) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             response.setContentType("application/json;charset=UTF-8");
             response.getWriter().write("{\"error\": \"로그인이 필요합니다.\"}");
             return;
         }
-
-        String token = authorization.substring(7);
 
         try {
             if (jwtUtil.isExpired(token)) {
