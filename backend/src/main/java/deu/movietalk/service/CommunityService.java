@@ -1,9 +1,11 @@
 package deu.movietalk.service;
 
+import deu.movietalk.domain.CommunityCategory;
 import deu.movietalk.domain.CommunityComment;
 import deu.movietalk.domain.CommunityPost;
 import deu.movietalk.domain.Member;
 import deu.movietalk.dto.*;
+import deu.movietalk.repository.CommunityCategoryRepository;
 import deu.movietalk.repository.CommunityCommentRepository;
 import deu.movietalk.repository.CommunityPostRepository;
 import deu.movietalk.repository.MemberRepository;
@@ -23,11 +25,13 @@ public class CommunityService {
     private final CommunityPostRepository communityPostRepository;
     private final MemberRepository memberRepository;
     private final CommunityCommentRepository communityCommentRepository;
+    private final CommunityCategoryRepository communityCategoryRepository;
     @Autowired
-    public CommunityService(CommunityPostRepository boardRepository, MemberRepository memberRepository, CommunityCommentRepository communityCommentRepository) {
+    public CommunityService(CommunityPostRepository boardRepository, MemberRepository memberRepository, CommunityCommentRepository communityCommentRepository, CommunityCategoryRepository communityCategoryRepository) {
         this.communityPostRepository = boardRepository;
         this.memberRepository = memberRepository;
         this.communityCommentRepository = communityCommentRepository;
+        this.communityCategoryRepository = communityCategoryRepository;
     }
     //게시글 조회(페이징)
     public Page<CommunitySummaryDto> getPostSummaries(Pageable pageable) {
@@ -44,22 +48,36 @@ public class CommunityService {
                 post.getCreatedAt().toString()
         ));
     }
+    public Page<CommunitySummaryDto> getPostsByCategory(Long categoryId, Pageable pageable) {
+        Page<CommunityPost> postPage = communityPostRepository.findByCommunityCategory_CategoryId(categoryId, pageable);
+
+        return postPage.map(post -> new CommunitySummaryDto(
+                post.getPostId(),
+                post.getTitle(),
+                post.getMember().getNickname(),
+                post.getCreatedAt().toString()
+        ));
+    }
 
     //게시글 등록
     public CommunityDto createPost(CommunityDto communityDto, String memberId) {
         Member member = memberRepository.findById(memberId)
                 .orElseThrow(() -> new RuntimeException("로그인한 회원 정보가 없습니다."));
 
+
+        CommunityCategory category = communityCategoryRepository.findById(communityDto.getCategoryId())
+                .orElseThrow(() -> new RuntimeException("카테고리 정보 없음"));
+
         CommunityPost post = CommunityPost.builder()
                 .title(communityDto.getTitle())
                 .content(communityDto.getContent())
                 .member(member)
+                .communityCategory(category)
                 .createdAt(LocalDateTime.now())
                 .build();
 
         CommunityPost saved = communityPostRepository.save(post);
-
-        return new CommunityDto(saved.getTitle(), saved.getContent());
+        return new CommunityDto(saved.getTitle(), saved.getContent(),saved.getCommunityCategory().getCategoryId());
     }
     public Page<CommunitySummaryDto> searchPosts(String keyword, Pageable pageable) {
         Page<CommunityPost> postPage = communityPostRepository
@@ -149,7 +167,11 @@ public class CommunityService {
         if (!post.getMember().getMemberId().equals(memberId)) {
             throw new IllegalArgumentException("본인이 작성한 게시글만 수정할 수 있습니다.");
         }
-
+        if (dto.getCategoryId() != null) {
+            CommunityCategory category = communityCategoryRepository.findById(dto.getCategoryId())
+                    .orElseThrow(() -> new RuntimeException("유효하지 않은 카테고리"));
+            post.setCommunityCategory(category);
+        }
         post.setTitle(dto.getTitle());
         post.setContent(dto.getContent());
         post.setUpdatedAt(LocalDateTime.now());

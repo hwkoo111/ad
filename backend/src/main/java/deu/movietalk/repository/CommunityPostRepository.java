@@ -10,4 +10,7 @@ import org.springframework.stereotype.Repository;
 public interface CommunityPostRepository extends JpaRepository<CommunityPost,Long> {
     Page<CommunityPost> findByTitleContainingIgnoreCaseOrContentContainingIgnoreCase(
             String titleKeyword, String contentKeyword, Pageable pageable);
+
+    Page<CommunityPost> findByCommunityCategory_CategoryId(Long categoryId, Pageable pageable);
+
 }

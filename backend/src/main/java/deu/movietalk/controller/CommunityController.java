@@ -65,6 +65,18 @@ public class CommunityController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+    //게시글 카레고리별 조회
+    @GetMapping("/posts/category/{categoryId}")
+    public ResponseEntity<?> getPostsByCategory(@PathVariable Long categoryId,
+                                                @RequestParam(defaultValue = "0") int page) {
+        Pageable pageable = PageRequest.of(page, 10, Sort.by("createdAt").descending());
+        Page<CommunitySummaryDto> posts = communityService.getPostsByCategory(categoryId, pageable);
+
+        if (posts.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body("해당 카테고리의 게시글이 없습니다.");
+        }
+        return ResponseEntity.ok(posts);
+    }
     //게시글 삭제
     @DeleteMapping("/enter/delete/{postId}")
     public ResponseEntity<?> deletePost(@PathVariable Long postId) {

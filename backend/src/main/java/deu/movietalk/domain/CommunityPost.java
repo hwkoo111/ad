@@ -21,6 +21,11 @@ public class CommunityPost {
     private Long postId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="category_id",nullable = false)
+    private CommunityCategory communityCategory;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id",nullable = false)
     private Member member;
 
