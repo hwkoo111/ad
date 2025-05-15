@@ -9,6 +9,7 @@ import FindFriendPage from './pages/FindFriendPage';
 import PlaylistDetailPage from './pages/PlaylistDetailPage'; 
 import Navigation from './components/Navigation.js'
 import SignupPage from './pages/SignupPage';
+import SocialLoginCallback from './pages/SocialLoginCallback';
 import { AuthProvider } from './auth/AuthContext';
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/findfriend" element={<FindFriendPage />} />
           <Route path="/playlist/view/:playListId" element={<PlaylistDetailPage />} />
           <Route path="/signup" element={<SignupPage />} />
+          <Route path="/oauth2/callback" element={<SocialLoginCallback />} /> {/* 추가 */}
         </Routes>
       </BrowserRouter>
     </AuthProvider>

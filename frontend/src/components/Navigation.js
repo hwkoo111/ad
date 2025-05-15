@@ -4,19 +4,29 @@ import { AuthContext } from '../auth/AuthContext';
 import '../styles/Navigation.css';
 
 const Navigation = () => {
-  const { isLoggedIn, setIsLoggedIn, nickname } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn, nickname ,setNickname  } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    const confirmed = window.confirm('정말 로그아웃하시겠습니까?');
-   if (confirmed) {
+const handleLogout = async () => {
+  const confirmed = window.confirm('정말 로그아웃하시겠습니까?');
+  if (confirmed) {
+    try {
+      await fetch('http://localhost:8080/api/auth/logout', {
+        method: 'POST',
+        credentials: 'include',
+      });
+    } catch (e) {
+      console.error('로그아웃 요청 실패', e);
+    }
     localStorage.removeItem('token');
-    localStorage.removeItem('nickname'); // ✅ 닉네임도 제거
+    localStorage.removeItem('nickname');
     setIsLoggedIn(false);
-    alert('로그아웃되었습니다.'); // ✅ 알림창
+    setNickname('');
+    alert('로그아웃되었습니다.');
     navigate('/');
   }
-  };
+};
+
 
   return (
     <nav>

@@ -1,4 +1,6 @@
-import React, { createContext, useState, useEffect } from 'react';
+// AuthContext.jsx (또는 .js)
+
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 
 export const AuthContext = createContext();
 
@@ -6,14 +8,33 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [nickname, setNickname] = useState('');
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    const savedNickname = localStorage.getItem('nickname');
-    setIsLoggedIn(!!token);
-    if (savedNickname) setNickname(savedNickname);
+  const checkLoginStatus = useCallback(async () => {
+    try {
+      const res = await fetch('http://localhost:8080/api/auth/status', {
+        credentials: 'include',
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setIsLoggedIn(data.isLoggedIn);
+        setNickname(data.nickname);
+      } else {
+        setIsLoggedIn(false);
+        setNickname('');
+      }
+    } catch {
+      setIsLoggedIn(false);
+      setNickname('');
+    }
   }, []);
+
+  useEffect(() => {
+    checkLoginStatus();
+  }, [checkLoginStatus]);
+
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, nickname, setNickname }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, setIsLoggedIn, nickname, setNickname, checkLoginStatus }}
+    >
       {children}
     </AuthContext.Provider>
   );

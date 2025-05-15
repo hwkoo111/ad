@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext'; // ✅ 추가
 import '../styles/LoginForm.css';  // CSS 파일 import
+import naverLoginBtn from '../assets/btnW_축약형.png';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
@@ -9,7 +10,11 @@ const LoginForm = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const navigate = useNavigate();
-  const { setIsLoggedIn, setNickname } = useContext(AuthContext);
+  const { setIsLoggedIn, setNickname,checkLoginStatus  } = useContext(AuthContext);
+
+ const handleNaverLogin = () => {
+    window.location.href = 'http://localhost:8080/oauth2/authorization/naver';
+  };
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -23,18 +28,15 @@ const LoginForm = () => {
 
       if (response.ok) {
         const data = await response.json();
-        const token = data.token;
-        const nickname = data.nickname;
-        console.log(data);
-        localStorage.setItem('token', token);
-        localStorage.setItem('nickname', nickname); // ✅ 저장
-        setIsLoggedIn(true);
-        setNickname(nickname); // ✅ context에 저장
-        console.log(nickname);
-        alert('로그인 성공!')
-        setSuccessMessage('로그인 성공!');
-        setErrorMessage('');
-        navigate('/'); // 홈으로 이동
+  localStorage.setItem('token', data.token);
+  localStorage.setItem('nickname', data.nickname);
+
+  await checkLoginStatus();  // 상태 갱신 담당 함수, 여기서 setIsLoggedIn, setNickname 호출 중
+
+   
+      setSuccessMessage('로그인 성공!');
+      setErrorMessage('');
+      navigate('/');
       } else {
         setErrorMessage('잘못된 아이디 또는 비밀번호입니다.');
       }
@@ -58,6 +60,15 @@ const LoginForm = () => {
         {successMessage && <p className="success-message">{successMessage}</p>}
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit" className="submit-btn">로그인</button>
+        {/* 네이버 로그인 버튼 추가 */}
+<div className="naver-login-wrapper" style={{ marginTop: '20px' }}>
+  <img
+    src={naverLoginBtn}
+    alt="네이버 로그인"
+    className="naver-login-btn"
+    onClick={handleNaverLogin}
+  />
+</div>
       </form>
     </div>
   );
