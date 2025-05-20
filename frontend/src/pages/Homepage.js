@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import logo from '../assets/logo.png'
 import '../styles/Homepage.css';  // CSS 파일 import
+import searchicon from "../assets/mainpage/search.png"
+import logo from "../assets/logo.png"
 
 const MovieList = () => {
   const [movies, setMovies] = useState({}); // 영화 데이터를 저장할 상태
@@ -34,19 +35,21 @@ const MovieList = () => {
     fetchMovies(); // 컴포넌트가 마운트될 때 API 호출
   }, []); // 빈 배열을 두면 컴포넌트 마운트 시 한 번만 호출
 
-  // 영화 데이터가 없으면 로딩 상태 표시
-  if (Object.keys(movies).length === 0) {
-    return <div>로딩 중...</div>;
-  }
-
   return (
       <div>
-        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* 에러 메시지 표시 */}
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* 에러 메시지 표시 */}
+      <div className='movietalk'>MOVIETALK</div>
+      <div className='image-43'></div>
+      <div className="search-container">
+        <input type="text" className="searchbar" placeholder="Search" />
+        <img src={searchicon} alt="검색 아이콘" className="search-icon" />
+      </div>
 
-        <div className="movie-container">
-          {/* 상영작 카테고리 */}
-          <div className="movie-category">
-            <h3>상영작</h3>
+      <div className='movie-container'>
+        {/* 상영작 */}
+        <h3>상영작</h3>
+        {movies['상영작'] && movies['상영작'].length > 0 ? (
+          <div className='screenMovie'>
             <div className="movie-items">
               {movies['상영작'].map((movie, index) => (
                 <div key={index} className="movie-item">
@@ -56,10 +59,13 @@ const MovieList = () => {
               ))}
             </div>
           </div>
-
-           {/* 액션 카테고리 */}
-          <div className="movie-category">
-            <h3>액션</h3>
+        ) : (
+          <p>상영작 데이터가 없습니다.</p>
+        )}
+        <h3>액션</h3>
+        {/* 액션 */}
+        {movies['액션'] && movies['액션'].length > 0 ? (
+          <div className='actionMovie'>
             <div className="movie-items">
               {movies['액션'].map((movie, index) => (
                 <div key={index} className="movie-item">
@@ -69,10 +75,13 @@ const MovieList = () => {
               ))}
             </div>
           </div>
-
-           {/* 드라마 카테고리 */}
-          <div className="movie-category">
-            <h3>드라마</h3>
+        ) : (
+          <p>액션 영화 데이터가 없습니다.</p>
+        )}
+        <h3>드라마</h3>
+        {/* 드라마 */}
+        {movies['드라마'] && movies['드라마'].length > 0 ? (
+          <div className='dramaMovie'>
             <div className="movie-items">
               {movies['드라마'].map((movie, index) => (
                 <div key={index} className="movie-item">
@@ -82,10 +91,13 @@ const MovieList = () => {
               ))}
             </div>
           </div>
-
-          {/* 호러 카테고리 */}
-          <div className="movie-category">
-            <h3>호러</h3>
+        ) : (
+          <p>드라마 영화 데이터가 없습니다.</p>
+        )}
+        <h3>호러</h3>
+        {/* 호러 */}
+        {movies['호러'] && movies['호러'].length > 0 ? (
+          <div className='horrorMovie'>
             <div className="movie-items">
               {movies['호러'].map((movie, index) => (
                 <div key={index} className="movie-item">
@@ -95,9 +107,12 @@ const MovieList = () => {
               ))}
             </div>
           </div>
-        </div>
+        ) : (
+          <p>호러 영화 데이터가 없습니다.</p>
+        )}
       </div>
-    );
+    </div>
+  );
   };
 
   export default MovieList;

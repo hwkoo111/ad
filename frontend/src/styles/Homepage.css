@@ -1,29 +1,102 @@
-.movie-container {
-  display: flex;
-  justify-content: space-between;  /* 카테고리들을 가로로 나열 */
-  gap: 20px;  /* 카테고리 간 간격 */
-  position: relative;  /* 상대 위치로 설정 */
-  top: 120px;  /* 네비게이션 바 아래에 위치하도록 설정 */
+.movietalk {
+  position: absolute;
+  top: 250px;
+  left: 50%;           /* 가로 중앙도 함께 맞추려면 */
+  transform: translate(-50%, -50%);
+  width: 412px;
+  height: 75px;
+  color: #FFFFFF;
+  font-family: "Raleway";
+  font-size: 64px;
+  line-height: 75px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-align: center;
 }
 
+
+.search-container {
+  position: absolute;
+  top: 500px;                /* 원하는 세로 위치 */
+  left: 50%;                 /* 가로 중앙 기준 */
+  transform: translateX(-50%);
+  width: 824px;              /* 너비 고정 */
+  height: 45px;              /* input 높이에 맞춤 */
+  
+  display: flex;
+  align-items: center;
+
+  background: #FFFFFF;
+  border: 1px solid #37383E;
+  box-sizing: border-box;
+  padding: 0 12px;           /* 좌우 여백 */
+  border-radius: 4px;        /* 필요하면 둥글게 */
+}
+
+.searchbar {
+  flex: 1;
+  height: 100%;              /* 컨테이너 높이 꽉 채움 */
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: transparent;   /* 배경 없애서 부모 배경 보이도록 */
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-left: 8px;
+  cursor: pointer;           /* 필요시 클릭 커서 */
+}
+
+.image-43 {
+    width: 100%;
+    height: 675.31px;
+    background: url(https://image-resource.creatie.ai/160592656886987/160592656886989/32152ef492267987c9c6aa90f4101781.png);
+    object-fit: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+.movie-container {
+  display: flex;
+  flex-direction: column; /* 카테고리들을 세로로 쌓기 */
+  gap: 40px;              /* 카테고리 간 간격 */
+  position: relative;     
+  top: 120px;             /* 네비 바로 아래 위치 */
+}
+
+.movie-category h3 {
+  flex-shrink: 0;         /* 제목 크기 고정 */
+  margin-bottom: 0;       /* 위아래 길이 유지하려면 기존 마진 제거 */
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+
 .movie-category {
-  flex: 1;  /* 각 카테고리가 균등하게 공간을 차지하도록 설정 */
-  padding: 10px;
+  /* flex: 1; 제거 (필요시 추가 가능) */
+  padding: 10px 0;
 }
 
 .movie-items {
-  display: flex;
-  flex-wrap: wrap;  /* 항목들이 줄바꿈 되도록 설정 */
-  gap: 10px;  /* 항목들 간 간격 */
+  display: flex;               
+  justify-content: center;     
+  flex-wrap: nowrap;           
+  gap: 16px;                   
+  overflow-x: auto;            
+  padding: 10px 0;             
 }
 
 .movie-item {
   text-align: center;
-  width: 150px;  /* 각 항목의 너비 설정 */
+  width: 150px;  /* 유지 */
 }
 
 .movie-item img {
-  width: 150px;    /* 이미지 너비를 고정 */
-  height: 215px;   /* 이미지 높이를 고정 */
-  object-fit: cover;  /* 이미지 비율을 유지하면서 영역에 맞게 자르기 */
+  width: 150px;    
+  height: 215px;   
+  object-fit: cover;
 }

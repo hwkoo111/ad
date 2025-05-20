@@ -11,17 +11,6 @@ nav {
   width: 100%; /* 화면 너비 전체 */
   z-index: 1000; /* 다른 콘텐츠 위에 표시 */
 }
-.nav-logo {
-  position: absolute;
-  top: 30%; /* 부모 nav 중앙 */
-  transform: translate(-50%, -50%); /* 수직 중앙 정렬 */
-  left: 50%;
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  line-height: 1;
-  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
-}
 nav div {
   flex: 1; /* 각 항목을 균등하게 나누기 */
   text-align: center; /* 텍스트 가운데 정렬 */
@@ -97,4 +86,22 @@ nav a.active {
 
 .logout-btn:hover {
   background-color: #f8f8f8;
+}
+
+.user {
+  display: inline-block; /* inline 요소에 크기 지정하려면 필요 */
+  width: 32px;   /* 적당한 크기로 조절 */
+  height: 32px;
+  border-radius: 50%;  /* 동그랗게 */
+  overflow: hidden;
+  vertical-align: middle; /* 텍스트와 수직 정렬 */
+  margin-left: 8px; /* 텍스트와 간격 */
+
+}
+
+.user img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext';
 import '../styles/Navigation.css';
+import profile from "../assets/mainpage/user.png"
 
 const Navigation = () => {
   const { isLoggedIn, setIsLoggedIn, nickname ,setNickname  } = useContext(AuthContext);
@@ -30,9 +31,6 @@ const handleLogout = async () => {
 
   return (
     <nav>
-
-      <div className="nav-logo">MovieTalk</div>
-      
       <div className="nav-links">
         <NavLink to="/">Home</NavLink>
         <NavLink to="/community">Community</NavLink>
@@ -46,6 +44,10 @@ const handleLogout = async () => {
             <>
               <span className="welcome-text">{nickname}님 환영합니다!</span>
               <button className="logout-btn" onClick={handleLogout}>Logout</button>
+              <NavLink to= "/mypage">
+                <img src= {profile} alt="Profile"className="user"></img>
+              </NavLink>
+
             </>
           ) : (
             <>
